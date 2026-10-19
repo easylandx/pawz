@@ -61,6 +61,18 @@
   .chip.b { bottom: 22px; right: -18px; background: var(--coral); color: var(--white); animation-delay: 1.2s; }
   @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
+  /* NEXT-CAT ARROW */
+  .next-btn { position: absolute; top: 18px; right: 18px; z-index: 3; width: 52px; height: 52px; border: 0; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; cursor: pointer; box-shadow: 0 6px 0 var(--gold-deep), 0 12px 24px rgba(0,0,0,.3); transition: transform .15s, box-shadow .15s; -webkit-tap-highlight-color: transparent; }
+  .next-btn::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 3px solid var(--gold); animation: ring 1.8s ease-out infinite; pointer-events: none; }
+  .next-btn svg { width: 26px; height: 26px; animation: nudge 1.1s ease-in-out infinite; }
+  .next-btn:hover { transform: translateY(-2px) scale(1.06); box-shadow: 0 8px 0 var(--gold-deep), 0 16px 28px rgba(0,0,0,.35); }
+  .next-btn:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--gold-deep), 0 6px 14px rgba(0,0,0,.3); }
+  .next-btn:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+  @keyframes nudge { 0%,100% { transform: translate(-3px, 3px); } 50% { transform: translate(4px, -4px); } }
+  @keyframes ring { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(1.7); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .next-btn svg, .next-btn::after { animation: none; } }
+  @media (max-width: 520px) { .next-btn { top: 14px; right: 14px; width: 48px; height: 48px; } }
+
   /* MARQUEE */
   .marquee { background: var(--gold); overflow: hidden; white-space: nowrap; padding: 13px 0; }
   .marquee-track { display: inline-block; animation: marquee 32s linear infinite; }
@@ -307,6 +319,9 @@
     </div>
     <div class="photo">
       <img id="heroCat" src="" alt="A cat" title="Click for another cat" tabindex="0" role="button" style="cursor:pointer;transition:opacity .18s ease">
+      <button type="button" class="next-btn" id="nextCat" aria-label="Show next cat" title="Next cat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18L18 6"/><path d="M8 6h10v10"/></svg>
+      </button>
       <script>
         (function () {
           // Hero cats, shown in order. Each page load and each click shows the next one.
@@ -375,6 +390,7 @@
           }
           show(i);
           img.addEventListener('click', next);
+          document.getElementById('nextCat').addEventListener('click', next);
           img.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next(); }
           });
