@@ -240,6 +240,7 @@
   .ins-card ol { text-align: left; list-style: none; counter-reset: i; display: grid; gap: 10px; margin: 14px 0 18px; }
   .ins-card li { counter-increment: i; background: var(--white); border-radius: 14px; padding: 11px 14px 11px 48px; position: relative; font-weight: 500; }
   .ins-card li::before { content: counter(i); position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; background: var(--coral); color: var(--white); font-weight: 800; display: grid; place-items: center; font-size: .85rem; }
+  .ins-card ol[hidden] { display: none; }
   .ins-card .btn { width: 100%; border: 0; cursor: pointer; font-family: inherit; }
 </style>
 </head>
@@ -248,7 +249,7 @@
 <div class="wrap">
 <a class="logo" href="#top">🐾 Paw<b>VibesZ</b></a>
 <div class="nav-actions">
-<button aria-label="Install the app" class="nav-cta nav-install" data-es='📲 &lt;span class="txt"&gt;Instalar&lt;/span&gt;' data-es-aria-label="Instalar la app" hidden="" id="installBtn" type="button">📲 <span class="txt">Install</span></button>
+<button aria-label="Install the app" class="nav-cta nav-install" data-es='📲 &lt;span class="txt"&gt;Instalar&lt;/span&gt;' data-es-aria-label="Instalar la app" id="installBtn" type="button">📲 <span class="txt">Install</span></button>
 <button aria-label="Ver esta página en español" class="nav-cta" id="langBtn" lang="es" title="Español" type="button">ESPAÑOL</button>
 </div>
 </div>
@@ -834,6 +835,11 @@
 <li data-es="Desplázate y elige &lt;b&gt;Añadir a pantalla de inicio&lt;/b&gt;.">Scroll down and choose <b>Add to Home Screen</b>.</li>
 <li data-es="Toca &lt;b&gt;Añadir&lt;/b&gt;. ¡Listo! 🐾">Tap <b>Add</b>. Done! 🐾</li>
 </ol>
+<ol id="insOther" hidden="">
+<li data-es="Abre el menú del navegador (⋮ o el icono de compartir).">Open your browser menu (⋮ or the share icon).</li>
+<li data-es="Elige &lt;b&gt;Instalar app&lt;/b&gt; o &lt;b&gt;Añadir a pantalla de inicio&lt;/b&gt;.">Choose <b>Install app</b> or <b>Add to Home Screen</b>.</li>
+<li data-es="Confirma y ¡listo! 🐾">Confirm. Done! 🐾</li>
+</ol>
 <button class="btn btn-gold" data-es="Entendido" id="insClose" type="button">Got it</button>
 </div>
 </div>
@@ -948,7 +954,9 @@
 
     function closeSheet() { back.classList.remove('open'); }
     if (!standalone) {
-      if (isIOS) btn.hidden = false;   // iOS has no install prompt, so the button shows the steps instead
+      btn.hidden = false;   // always visible; without a native prompt the button shows the steps instead
+      document.getElementById('insOther').hidden = isIOS;
+      document.querySelector('#insBack ol').hidden = !isIOS;
       window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         deferred = e;
@@ -957,8 +965,8 @@
       btn.addEventListener('click', function () {
         if (deferred) {
           deferred.prompt();
-          deferred.userChoice.then(function () { deferred = null; btn.hidden = true; });
-        } else if (isIOS) {
+          deferred.userChoice.then(function (r) { deferred = null; if (r && r.outcome === 'accepted') btn.hidden = true; });
+        } else {
           back.classList.add('open');
         }
       });
