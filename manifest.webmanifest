@@ -2,21 +2,21 @@
   "name": "PawVibesZ — Cats on Zoom",
   "short_name": "PawVibesZ",
   "description": "Book a live Zoom session with a real cat. Calm, purring, genuine connection.",
-  "id": "./",
-  "start_url": "./index.html",
-  "scope": "./",
+  "id": "/pawz/",
+  "start_url": "/pawz/index.html",
+  "scope": "/pawz/",
   "display": "standalone",
   "background_color": "#0D3B3F",
   "theme_color": "#0D3B3F",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/pawz/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon.svg",
+      "src": "/pawz/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
