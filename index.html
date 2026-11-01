@@ -18,6 +18,10 @@
     document.documentElement.lang = l;
   })();
 </script>
+<script>
+  /* Capture the native install prompt as early as possible so the button can trigger it directly. */
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); window.__pvDeferred = e; window.dispatchEvent(new Event("pv-installready")); });
+</script>
 <meta content="#0D3B3F" name="theme-color"/>
 <meta content="PawVibesZ" name="application-name"/>
 <meta content="yes" name="mobile-web-app-capable"/>
@@ -947,7 +951,7 @@
     /* ---------- Install app button ---------- */
     var btn = document.getElementById('installBtn');
     var back = document.getElementById('insBack');
-    var deferred = null;
+    var deferred = window.__pvDeferred || null;
     var standalone = (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
     var ua = navigator.userAgent || '';
     var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
@@ -957,15 +961,12 @@
       btn.hidden = false;   // always visible; without a native prompt the button shows the steps instead
       document.getElementById('insOther').hidden = isIOS;
       document.querySelector('#insBack ol').hidden = !isIOS;
-      window.addEventListener('beforeinstallprompt', function (e) {
-        e.preventDefault();
-        deferred = e;
-        btn.hidden = false;
-      });
+      window.addEventListener('pv-installready', function () { deferred = window.__pvDeferred; btn.hidden = false; });
       btn.addEventListener('click', function () {
+        deferred = deferred || window.__pvDeferred || null;
         if (deferred) {
           deferred.prompt();
-          deferred.userChoice.then(function (r) { deferred = null; if (r && r.outcome === 'accepted') btn.hidden = true; });
+          deferred.userChoice.then(function (r) { deferred = null; window.__pvDeferred = null; if (r && r.outcome === 'accepted') btn.hidden = true; });
         } else {
           back.classList.add('open');
         }
