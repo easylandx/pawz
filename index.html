@@ -34,7 +34,7 @@
 <link href="favicon.ico" rel="shortcut icon"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
 <title>🐈 PawVibesZ — Cats on Zoom</title>
-<meta content="Book a live Zoom session with a real cat. Calm, purring, genuine connection. Individual €80 · Group €800." name="description"/>
+<meta content="Book a live Zoom session with a real cat. Calm, purring, genuine connection. Individual $80 · Group $800." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
@@ -171,6 +171,25 @@
   .plan ul { list-style: none; text-align: left; margin: 12px auto 18px; display: grid; gap: 8px; color: var(--muted); }
   .plan li::before { content: '✓ '; color: var(--coral); font-weight: 800; }
   .plan .btn { margin-top: auto; }
+
+
+  /* DISCOUNT TAGS (-60%) */
+  .deal { position: relative; display: inline-flex; }
+  .deal .btn { flex: 1; }
+  .btn-row:has(.deal) { row-gap: 34px; }
+  .off { position: absolute; z-index: 3; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; background: linear-gradient(180deg, #FFEB70, #FFD52B); color: var(--ink); font-family: 'DM Sans', system-ui, sans-serif; line-height: 1; padding: 6px 12px 6px 10px; border-radius: 999px; border: 2px solid var(--white); box-shadow: 0 6px 14px rgba(0,0,0,.28); pointer-events: none; transition: transform .18s; }
+  .off b { font-weight: 700; font-size: .72rem; letter-spacing: .04em; }
+  .off em { font-style: normal; font-weight: 800; font-size: .95rem; padding-left: 8px; border-left: 1.5px solid rgba(16,40,42,.28); }
+  .deal .off { top: -16px; right: 14px; transform: rotate(3deg); }
+  .deal:hover .off { transform: translateY(-3px) rotate(3deg); }
+  .plan .off { top: 18px; right: 18px; padding: 8px 14px 8px 12px; }
+  .plan .off b { font-size: .8rem; }
+  .plan .off em { font-size: 1.15rem; }
+  .deal-stat { position: relative; }
+  .deal-stat .off { top: -36px; left: 50%; transform: translateX(-50%) rotate(-3deg); }
+  .stats { padding-top: 70px; }
+  .stats .wrap { row-gap: 50px; }
+  @media (max-width: 520px) { .deal { display: flex; width: 100%; } }
 
   /* FORM */
   .form-sec { background: var(--cream); }
@@ -428,10 +447,10 @@
       </script>
 <p class="lead" data-es="Conoce a un gato real en directo por Zoom durante unos minutos de calma, ronroneos y conexión genuina. Reinicia tu mente, mejora tu ánimo y vuelve al trabajo con más claridad.">Meet a real cat live on Zoom for a few minutes of calm, purring and genuine connection. Reset your mind, lift your mood, get back to work sharper.</p>
 <div class="btn-row">
-<a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 € por sesión&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>€80 per session</small></a>
-<a class="btn btn-coral" data-es="👥 Reservar grupal&lt;small&gt;800 € por grupo&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>€800 per group</small></a>
+<span class="deal"><a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 € por sesión&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>$80 per session</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;32 €&lt;/em&gt;"><b>−60%</b><em>$32</em></span></span>
+<span class="deal"><a class="btn btn-coral" data-es="👥 Reservar grupal&lt;small&gt;800 € por grupo&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>$800 per group</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;320 €&lt;/em&gt;"><b>−60%</b><em>$320</em></span></span>
 </div>
-<p class="price-note" data-es="Solo 80 € por sesión · 800 € grupal">Only €80 per session · €800 group</p>
+<p class="price-note" data-es="Solo 80 € por sesión · 800 € grupal">Only $80 per session · $800 group</p>
 <div class="trust"><span data-es="🔒 Pago seguro con Stripe">🔒 Secure Stripe checkout</span><span data-es="🌍 Más de 70 gatos en más de 20 países">🌍 70+ cats in 20+ countries</span></div>
 </div>
 <div class="photo">
@@ -557,8 +576,8 @@
 <h3 data-es="¿Listo para tu reinicio? Elige tu sesión.">Ready for your reset? Choose your session.</h3>
 <p data-es="Elige tu gato, fecha y hora en el formulario de abajo y paga de forma segura con Stripe.">Pick your cat, date and time in the booking form below, then pay securely with Stripe.</p>
 <div class="btn-row">
-<a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 €&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>€80</small></a>
-<a class="btn btn-coral" data-es="👥 Reservar grupal&lt;small&gt;800 €&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>€800</small></a>
+<span class="deal"><a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 €&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>$80</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;32 €&lt;/em&gt;"><b>−60%</b><em>$32</em></span></span>
+<span class="deal"><a class="btn btn-coral" data-es="👥 Reservar grupal&lt;small&gt;800 €&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>$800</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;320 €&lt;/em&gt;"><b>−60%</b><em>$320</em></span></span>
 </div>
 </div>
 </div>
@@ -570,7 +589,7 @@
 <div class="steps">
 <div class="step"><div class="ic">🐱</div><h3 data-es="Elige un gato">Pick a Cat</h3><p data-es="Explora más de 70 gatos reales en más de 20 países y escoge a tus favoritos.">Browse 70+ real cats across 20+ countries and choose your favourites.</p></div>
 <div class="step"><div class="ic">📅</div><h3 data-es="Agenda">Schedule</h3><p data-es="Elige tu gato, fecha y hora en el formulario de reserva de abajo.">Choose your cat, date and time in the booking form below.</p></div>
-<div class="step"><div class="ic">💳</div><h3 data-es="Reserva y paga">Book &amp; Pay</h3><p data-es="Pago seguro con Stripe: 80 € por una sesión individual u 800 € por un grupo.">Secure Stripe payment: €80 for an individual session or €800 for a group.</p></div>
+<div class="step"><div class="ic">💳</div><h3 data-es="Reserva y paga">Book &amp; Pay</h3><p data-es="Pago seguro con Stripe: 80 € por una sesión individual u 800 € por un grupo.">Secure Stripe payment: $80 for an individual session or $800 for a group.</p></div>
 <div class="step"><div class="ic">😌</div><h3 data-es="Respira y reinicia">Breathe &amp; Reset</h3><p data-es="Únete por Zoom y deja que el ronroneo haga su magia. Calma, serenidad, reconexión.">Join on Zoom and let the purring do its magic. Calm, grounded, reconnected.</p></div>
 </div>
 </div>
@@ -581,7 +600,7 @@
 <div><span class="stat-num">70+</span><span class="stat-label" data-es="Gatos reales">Real Cats</span></div>
 <div><span class="stat-num">50+</span><span class="stat-label" data-es="Anfitriones especialistas">Host Specialists</span></div>
 <div><span class="stat-num">20+</span><span class="stat-label" data-es="Países">Countries</span></div>
-<div><span class="stat-num" data-es="80 €">€80</span><span class="stat-label" data-es="Por sesión">Per Session</span></div>
+<div class="deal-stat"><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;32 €&lt;/em&gt;"><b>−60%</b><em>$32</em></span><span class="stat-num" data-es="80 €">$80</span><span class="stat-label" data-es="Por sesión">Per Session</span></div>
 </div>
 </div>
 <!-- CATS -->
@@ -728,17 +747,19 @@
 <p class="sub" data-es="Dos formas sencillas de unirte a la familia PawVibesZ.">Two simple ways to join the PawVibesZ family.</p>
 <div class="plans">
 <div class="plan">
+<span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;32 €&lt;/em&gt;"><b>−60%</b><em>$32</em></span>
 <div class="ic">🐱</div>
 <h3 data-es="Sesión individual">Individual Session</h3>
-<div class="price" data-es="80 € &lt;small&gt;/ sesión&lt;/small&gt;">€80 <small>/ session</small></div>
+<div class="price" data-es="80 € &lt;small&gt;/ sesión&lt;/small&gt;">$80 <small>/ session</small></div>
 <ul><li data-es="Un Zoom en directo, a solas con el gato que elijas">A live one-on-one Zoom with your chosen cat</li><li data-es="Elige tu gato, fecha y hora">Choose your cat, date and time</li><li data-es="Pago seguro con Stripe">Secure Stripe payment</li></ul>
 <a class="btn btn-gold" data-es="Reservar individual →" href="#schedule" data-plan="individual">Book Individual →</a>
 </div>
 <div class="plan featured">
 <span class="tag" data-es="Ideal para equipos">Best for teams</span>
+<span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;320 €&lt;/em&gt;"><b>−60%</b><em>$320</em></span>
 <div class="ic">👥</div>
 <h3 data-es="Sesión grupal">Group Session</h3>
-<div class="price" data-es="800 € &lt;small&gt;/ grupo&lt;/small&gt;">€800 <small>/ group</small></div>
+<div class="price" data-es="800 € &lt;small&gt;/ grupo&lt;/small&gt;">$800 <small>/ group</small></div>
 <ul><li data-es="Una experiencia felina compartida para todo tu grupo">A shared cat experience for your whole group</li><li data-es="Perfecta para equipos, eventos y celebraciones">Perfect for teams, events and celebrations</li><li data-es="Pago seguro con Stripe">Secure Stripe payment</li></ul>
 <a class="btn btn-coral" data-es="Reservar grupal →" href="#schedule" data-plan="group">Book Group →</a>
 </div>
@@ -837,8 +858,8 @@
 <label data-es="Sesión reservada *" for="f-plan">Session booked <i>/ Sesión reservada</i> *</label>
 <select id="f-plan" name="Session booked" required="">
 <option data-es="Selecciona tu sesión…" disabled="" selected="" value="">Select your session…</option>
-<option value="individual" data-es="Sesión individual — 80 €">Individual session — €80</option>
-<option value="group" data-es="Sesión grupal — 800 €">Group session — €800</option>
+<option value="individual" data-es="Sesión individual — 80 €">Individual session — $80</option>
+<option value="group" data-es="Sesión grupal — 800 €">Group session — $800</option>
 </select>
 </div>
 <div>
@@ -863,8 +884,8 @@
 <h2 data-es="Dale a tu mente el descanso que merece. 😸">Give your mind the rest it deserves. 😸</h2>
 <p data-es="Calma y cariño, entregados por bigotes.">Calm and kindness, delivered by whiskers.</p>
 <div class="btn-row">
-<a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 €&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>€80</small></a>
-<a class="btn btn-dark" data-es="👥 Reservar grupal&lt;small&gt;800 €&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>€800</small></a>
+<span class="deal"><a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 €&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>$80</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;32 €&lt;/em&gt;"><b>−60%</b><em>$32</em></span></span>
+<span class="deal"><a class="btn btn-dark" data-es="👥 Reservar grupal&lt;small&gt;800 €&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>$800</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;320 €&lt;/em&gt;"><b>−60%</b><em>$320</em></span></span>
 </div>
 </div>
 </section>
@@ -947,7 +968,7 @@
       var L = es ? ['Gato', 'Fecha', 'Hora', 'Sesión', 'Email'] : ['Cat', 'Date', 'Time', 'Session', 'Email'];
       var dt = new Date(b.date + 'T00:00');
       var ds = isNaN(dt) ? b.date : dt.toLocaleDateString(es ? 'es-ES' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-      var plan = b.plan === 'group' ? (es ? 'Sesión grupal — 800 €' : 'Group session — €800') : (es ? 'Sesión individual — 80 €' : 'Individual session — €80');
+      var plan = b.plan === 'group' ? (es ? 'Sesión grupal — 800 €' : 'Group session — $800') : (es ? 'Sesión individual — 80 €' : 'Individual session — $80');
       box.innerHTML = [[L[0], b.cat], [L[1], ds], [L[2], b.time + (b.tz ? ' (' + b.tz + ')' : '')], [L[3], plan], [L[4], b.email]]
         .map(function (r) { return '<p><b>' + r[0] + ':</b> ' + esc(r[1]) + '</p>'; }).join('');
       ics.hidden = false;
@@ -981,7 +1002,7 @@
     var STR = {
       en: {
         title: "🐈 PawVibesZ — Cats on Zoom",
-        desc: "Book a live Zoom session with a real cat. Calm, purring, genuine connection. Individual €80 · Group €800.",
+        desc: "Book a live Zoom session with a real cat. Calm, purring, genuine connection. Individual $80 · Group $800.",
         langBtn: 'ESPAÑOL', langLabel: 'Ver esta página en español', langHint: 'Español',
         alt: ''
       },
