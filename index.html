@@ -861,8 +861,8 @@
 <label data-es="Sesión reservada *" for="f-plan">Session booked <i>/ Sesión reservada</i> *</label>
 <select id="f-plan" name="Session booked" required="">
 <option data-es="Selecciona tu sesión…" disabled="" selected="" value="">Select your session…</option>
-<option value="individual" data-es="Sesión individual — 80 €">Individual session — $80</option>
-<option value="group" data-es="Sesión grupal — 800 €">Group session — $800</option>
+<option value="individual" data-es="Sesión individual — 32 € (−60%, antes 80 €)">Individual session — $32 (−60%, was $80)</option>
+<option value="group" data-es="Sesión grupal — 320 € (−60%, antes 800 €)">Group session — $320 (−60%, was $800)</option>
 </select>
 </div>
 <div>
@@ -971,7 +971,7 @@
       var L = es ? ['Gato', 'Fecha', 'Hora', 'Sesión', 'Email'] : ['Cat', 'Date', 'Time', 'Session', 'Email'];
       var dt = new Date(b.date + 'T00:00');
       var ds = isNaN(dt) ? b.date : dt.toLocaleDateString(es ? 'es-ES' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-      var plan = b.plan === 'group' ? (es ? 'Sesión grupal — 800 €' : 'Group session — $800') : (es ? 'Sesión individual — 80 €' : 'Individual session — $80');
+      var plan = b.plan === 'group' ? (es ? 'Sesión grupal — 320 € (−60%, antes 800 €)' : 'Group session — $320 (−60%, was $800)') : (es ? 'Sesión individual — 32 € (−60%, antes 80 €)' : 'Individual session — $32 (−60%, was $80)');
       box.innerHTML = [[L[0], b.cat], [L[1], ds], [L[2], b.time + (b.tz ? ' (' + b.tz + ')' : '')], [L[3], plan], [L[4], b.email]]
         .map(function (r) { return '<p><b>' + r[0] + ':</b> ' + esc(r[1]) + '</p>'; }).join('');
       ics.hidden = false;
