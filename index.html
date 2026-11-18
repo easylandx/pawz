@@ -827,6 +827,11 @@
 <label data-es="Email para confirmación y enlace de Zoom *" for="f-email">Email for confirmation and Zoom link <i>/ Email para confirmación y enlace de Zoom</i> *</label>
 <input autocomplete="email" data-es-placeholder="tu@email.com" id="f-email" name="Email" placeholder="you@email.com" required="" type="email"/>
 </div>
+<div>
+<label data-es="Código de descuento (opcional)" for="f-promo">Discount code <i>/ Código de descuento</i> (optional)</label>
+<input autocapitalize="characters" autocomplete="off" data-es-placeholder="Tu código" id="f-promo" maxlength="30" name="Promo" placeholder="Your code" value="PURR60" spellcheck="false" type="text"/>
+<p class="form-note" data-es="Se aplica en la página de pago seguro de Stripe." style="margin-top:6px">Applied on the secure Stripe payment page.</p>
+</div>
 <button class="btn btn-gold" data-es="💳 Continuar al pago seguro" type="submit">💳 Continue to Secure Payment</button>
 <p class="form-note" data-es="Pagarás en Stripe a continuación. La hora es la de tu zona horaria. Al terminar volverás aquí con tu reserva y un archivo de calendario.">You'll pay on Stripe next. Times are in your local time zone. After paying you'll come back here with your booking and a calendar file.</p>
 <div class="form-ok" id="formOk" role="status"></div>
@@ -885,6 +890,11 @@
     var now = new Date();
     if (d) d.min = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
 
+    /* Discount code: ?promo=CODE in the link prefills the field */
+    var promoEl = $('f-promo');
+    function cleanPromo(s) { return String(s || '').replace(/[^A-Za-z0-9_-]/g, '').slice(0, 30); }
+    try { var pm = (location.search.match(/[?&]promo=([^&#]*)/) || [])[1]; if (pm && promoEl) promoEl.value = cleanPromo(decodeURIComponent(pm)).toUpperCase(); } catch (x) {}
+
     /* Every "Book" button jumps to the form with its session preselected */
     [].forEach.call(document.querySelectorAll('a[data-plan]'), function (a) {
       a.addEventListener('click', function () { planSel.value = a.getAttribute('data-plan'); });
@@ -903,7 +913,8 @@
       try { localStorage.setItem(KEY, JSON.stringify(b)); } catch (x) {}
       ok.style.display = 'block';
       ok.textContent = isES() ? 'Abriendo el pago seguro…' : 'Opening secure payment…';
-      window.location.href = LINKS[isES() ? 'es' : 'en'][b.plan] + '?client_reference_id=' + encodeURIComponent(b.ref) + '&prefilled_email=' + encodeURIComponent(b.email);
+      var promo = cleanPromo(promoEl && promoEl.value);
+      window.location.href = LINKS[isES() ? 'es' : 'en'][b.plan] + '?client_reference_id=' + encodeURIComponent(b.ref) + '&prefilled_email=' + encodeURIComponent(b.email) + (promo ? '&prefilled_promo_code=' + encodeURIComponent(promo) : '');
     });
 
     /* "You're booked" screen: Stripe sends people back to  <site>/?paid=1 */
