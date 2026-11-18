@@ -292,6 +292,52 @@
   html[lang="es"] .promo-en { display: none; }
   html[lang="es"] .promo-es { display: block; }
   @media (max-width: 520px) { .promo { margin-top: 36px; } }
+
+  /* HOW IT WORKS + ZOOM-LINK NOTICES */
+  .zoom-box { display: flex; gap: 14px; align-items: flex-start; text-align: left; background: #FFF0B8; border: 3px solid var(--gold); border-radius: 18px; padding: 16px 18px; color: var(--ink); }
+  .zoom-box .zb-ic { font-size: 1.9rem; line-height: 1; flex: none; }
+  .zoom-box strong { display: block; font-size: 1.05rem; margin-bottom: 3px; color: var(--ink); }
+  .zoom-box p, .zoom-box span.zb-t { color: var(--ink); font-size: .95rem; margin: 0; }
+  .zoom-box mark { background: var(--gold); color: var(--ink); font-weight: 800; padding: 0 6px; border-radius: 6px; }
+  .booked-card .zoom-box { margin: 20px 0 6px; }
+  .booked-card .zoom-box p { color: var(--ink); }
+  .next-list { list-style: none; text-align: left; counter-reset: n; display: grid; gap: 8px; margin: 18px 0 24px; }
+  .next-list li { counter-increment: n; position: relative; padding-left: 38px; color: var(--ink); font-size: .97rem; }
+  .next-list li::before { content: counter(n); position: absolute; left: 0; top: -1px; width: 26px; height: 26px; border-radius: 50%; background: var(--coral); color: var(--white); font-weight: 800; font-size: .82rem; display: grid; place-items: center; }
+  .next-h { text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.15rem; margin-top: 22px; color: var(--teal); }
+  .plan li.zl::before { content: '📧 '; }
+  .trust .zt { color: var(--gold); font-weight: 700; }
+  .final .fz { margin: 22px auto 0; margin-bottom: 0; max-width: 560px; background: rgba(255,255,255,.2); border: 2px solid rgba(255,255,255,.6); border-radius: 16px; padding: 12px 16px; font-size: 1rem; font-weight: 500; }
+
+  /* HOW IT WORKS (single section) */
+  .hiw { background: var(--white); }
+  .hiw .sec-title { margin-bottom: 12px; }
+  .hiw .sub { text-align: center; color: var(--muted); font-size: 1.1rem; max-width: 620px; margin: 0 auto 52px; }
+  .hiw-list { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; counter-reset: h; }
+  .hiw-list li { counter-increment: h; position: relative; background: var(--cream); border: 2px solid #EBDDB5; border-radius: 22px; padding: 44px 16px 24px; text-align: center; }
+  .hiw-list li::before { content: counter(h); position: absolute; top: -18px; left: 50%; transform: translateX(-50%); width: 38px; height: 38px; border-radius: 50%; background: var(--coral); color: var(--white); font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.15rem; display: grid; place-items: center; box-shadow: 0 4px 0 #D4503C; }
+  .hiw-list li:not(:last-child)::after { content: '›'; position: absolute; right: -16px; top: 50%; transform: translateY(-50%); color: var(--gold-deep); font-size: 2rem; font-weight: 800; line-height: 1; }
+  .hiw-list .ic { font-size: 2.1rem; display: block; margin-bottom: 8px; }
+  .hiw-list h3 { font-size: 1.15rem; margin-bottom: 7px; line-height: 1.15; }
+  .hiw-list p { color: var(--muted); font-size: .93rem; }
+  .hiw-list li.key { background: #FFF0B8; border: 3px solid var(--gold); box-shadow: 0 12px 28px rgba(201,168,76,.38); }
+  .hiw-list li.key::before { background: var(--gold); color: var(--ink); box-shadow: 0 4px 0 var(--gold-deep); }
+  .hiw-list li.key p { color: var(--ink); }
+  .hiw-badge { display: inline-block; margin-top: 10px; background: var(--gold); color: var(--ink); font-weight: 800; font-size: .82rem; letter-spacing: .02em; padding: 5px 12px; border-radius: 999px; }
+  .hiw-after { margin: 46px auto 0; max-width: 880px; background: linear-gradient(180deg, #FFF8E3, #FFF0C2); border: 2px solid #EBDDB5; border-radius: 24px; padding: 26px 24px; text-align: center; }
+  .hiw-after h3 { font-size: 1.4rem; margin-bottom: 16px; }
+  .hiw-after ul { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; text-align: left; }
+  .hiw-after li { background: var(--white); border-radius: 16px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; font-size: .95rem; color: var(--ink); }
+  .hiw-after li .e { font-size: 1.6rem; line-height: 1; flex: none; }
+  .hiw-after li b { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--coral); margin-bottom: 2px; }
+  .hiw-after li.z b { color: var(--ink); background: var(--gold); display: table; margin-bottom: 4px; padding: 1px 8px; border-radius: 6px; }
+  .hiw-after li.z { border: 2px solid var(--gold); }
+  .hiw-cta { margin-top: 26px; display: flex; justify-content: center; }
+  @media (max-width: 1000px) {
+    .hiw-list { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; row-gap: 38px; }
+    .hiw-list li:not(:last-child)::after { display: none; }
+    .hiw-after ul { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -308,8 +354,21 @@
 <div class="wrap"><div class="booked-card">
 <div class="booked-ic">🎉</div>
 <h2 data-es="¡Tu sesión está reservada!">You're booked!</h2>
-<p data-es="¡Gracias! Hemos recibido tu pago. Te confirmaremos tu sesión por email con tu enlace de Zoom.">Thank you! Your payment went through. We'll confirm your session by email with your Zoom link.</p>
+<p data-es="¡Gracias! Hemos recibido tu pago y tu reserva está registrada.">Thank you! Your payment went through and your booking is saved.</p>
+<div class="zoom-box" role="note">
+<span class="zb-ic">📧</span>
+<div>
+<strong data-es="Tu enlace de Zoom llegará por email en un plazo máximo de 24 horas">Your Zoom link will arrive by email <mark>within 24 hours</mark></strong>
+<p data-es="Te confirmaremos tu sesión por email con tu enlace de Zoom. Si no lo ves, revisa la carpeta de spam.">We'll confirm your session by email with your Zoom link. If you don't see it, check your spam folder.</p>
+</div>
+</div>
 <div class="booked-info" id="bookedInfo"></div>
+<div class="next-h" data-es="Qué pasa ahora" >What happens next</div>
+<ol class="next-list">
+<li data-es="Ya tienes el recibo de Stripe en tu email.">Your Stripe receipt is already in your inbox.</li>
+<li data-es="En un plazo máximo de 24 horas te enviamos el enlace de Zoom con tu confirmación.">Within 24 hours we email you the Zoom link with your confirmation.</li>
+<li data-es="A la hora reservada, abre el enlace y conoce a tu gato. 🐾">At your booked time, open the link and meet your cat. 🐾</li>
+</ol>
 <div class="btn-row">
 <button class="btn btn-gold" id="icsBtn" type="button" data-es="📅 Añadir al calendario">📅 Add to calendar</button>
 <button class="btn btn-coral" id="bookedBack" type="button" data-es="Volver a la web">Back to the site</button>
@@ -454,7 +513,7 @@
 <span class="deal"><a class="btn btn-coral" data-es="👥 Reservar grupal&lt;small&gt;800 € por grupo&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>$800 per group</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;320 €&lt;/em&gt;"><b>−60%</b><em>$320</em></span></span>
 </div>
 <p class="price-note" data-es="Solo 80 € por sesión · 800 € grupal">Only $80 per session · $800 group</p>
-<div class="trust"><span data-es="🔒 Pago seguro con Stripe">🔒 Secure Stripe checkout</span><span data-es="🌍 Más de 70 gatos en más de 20 países">🌍 70+ cats in 20+ countries</span></div>
+<div class="trust"><span data-es="🔒 Pago seguro con Stripe">🔒 Secure Stripe checkout</span><span data-es="🌍 Más de 70 gatos en más de 20 países">🌍 70+ cats in 20+ countries</span><span class="zt" data-es="📧 Enlace de Zoom por email en 24 h">📧 Zoom link by email within 24 hours</span></div>
 </div>
 <div class="photo">
 <img alt="A cat" id="heroCat" role="button" src="" style="cursor:pointer;transition:opacity .18s ease" tabindex="0" title="Click for another cat"/>
@@ -586,14 +645,25 @@
 </div>
 </section>
 <!-- HOW IT WORKS -->
-<section class="sec steps-sec">
+<section class="sec hiw" id="how">
 <div class="wrap">
-<h2 class="sec-title" data-es="Cómo funciona">How It Works</h2>
-<div class="steps">
-<div class="step"><div class="ic">🐱</div><h3 data-es="Elige un gato">Pick a Cat</h3><p data-es="Explora más de 70 gatos reales en más de 20 países y escoge a tus favoritos.">Browse 70+ real cats across 20+ countries and choose your favourites.</p></div>
-<div class="step"><div class="ic">📅</div><h3 data-es="Agenda">Schedule</h3><p data-es="Elige tu gato, fecha y hora en el formulario de reserva de abajo.">Choose your cat, date and time in the booking form below.</p></div>
-<div class="step"><div class="ic">💳</div><h3 data-es="Reserva y paga">Book &amp; Pay</h3><p data-es="Pago seguro con Stripe: 80 € por una sesión individual u 800 € por un grupo.">Secure Stripe payment: $80 for an individual session or $800 for a group.</p></div>
-<div class="step"><div class="ic">😌</div><h3 data-es="Respira y reinicia">Breathe &amp; Reset</h3><p data-es="Únete por Zoom y deja que el ronroneo haga su magia. Calma, serenidad, reconexión.">Join on Zoom and let the purring do its magic. Calm, grounded, reconnected.</p></div>
+<h2 class="sec-title" data-es="Cómo funciona 🐾">How It Works 🐾</h2>
+<p class="sub" data-es="De la reserva al ronroneo en cinco pasos sencillos.">From booking to purring in five simple steps.</p>
+<ol class="hiw-list">
+<li><span class="ic">🐱</span><h3 data-es="Elige un gato">Pick a cat</h3><p data-es="Explora más de 70 gatos reales en más de 20 países y escoge a tu favorito.">Browse 70+ real cats across 20+ countries and choose your favourite.</p></li>
+<li><span class="ic">📅</span><h3 data-es="Elige fecha y hora">Choose date &amp; time</h3><p data-es="Rellena el formulario de abajo e incluye tu email: es donde te enviamos el enlace de Zoom.">Fill in the form below and add your email: that's where we send your Zoom link.</p></li>
+<li><span class="ic">💳</span><h3 data-es="Paga de forma segura">Pay securely</h3><p data-es="Pago seguro con Stripe: 32 € la sesión individual o 320 € el grupo (−60%).">Secure Stripe payment: $32 for an individual session or $320 for a group (−60%).</p></li>
+<li class="key"><span class="ic">📧</span><h3 data-es="Recibe tu enlace de Zoom">Get your Zoom link</h3><p data-es="Te confirmamos tu sesión por email con tu enlace de Zoom. Revisa también el spam.">We confirm your session by email with your Zoom link. Check your spam folder too.</p><span class="hiw-badge" data-es="⏱ En un plazo máximo de 24 horas">⏱ Within 24 hours</span></li>
+<li><span class="ic">😌</span><h3 data-es="Respira y reinicia">Breathe &amp; reset</h3><p data-es="Abre el enlace a la hora reservada y deja que el ronroneo haga su magia.">Open the link at your booked time and let the purring do its magic.</p></li>
+</ol>
+<div class="hiw-after">
+<h3 data-es="Qué recibirás después de pagar">What you'll get after paying</h3>
+<ul>
+<li><span class="e">🧾</span><div><b data-es="Al instante">Instantly</b><span data-es="El recibo de Stripe en tu email.">Your Stripe receipt by email.</span></div></li>
+<li><span class="e">🎉</span><div><b data-es="Al instante">Instantly</b><span data-es="La pantalla «Tu sesión está reservada» con tu gato, fecha y hora, y un archivo de calendario.">A "You're booked" screen with your cat, date and time, plus a calendar file.</span></div></li>
+<li class="z"><span class="e">📧</span><div><b data-es="En 24 horas como máximo">Within 24 hours</b><span data-es="Tu enlace de Zoom por email, con la confirmación de tu sesión.">Your Zoom link by email, confirming your session.</span></div></li>
+</ul>
+<div class="hiw-cta"><a class="btn btn-gold" href="#schedule" data-es="Reservar mi sesión →">Book my session →</a></div>
 </div>
 </div>
 </section>
@@ -754,7 +824,7 @@
 <div class="ic">🐱</div>
 <h3 data-es="Sesión individual">Individual Session</h3>
 <div class="price" data-es="80 € &lt;small&gt;/ sesión&lt;/small&gt;">$80 <small>/ session</small></div>
-<ul><li data-es="Un Zoom en directo, a solas con el gato que elijas">A live one-on-one Zoom with your chosen cat</li><li data-es="Elige tu gato, fecha y hora">Choose your cat, date and time</li><li data-es="Pago seguro con Stripe">Secure Stripe payment</li></ul>
+<ul><li data-es="Un Zoom en directo, a solas con el gato que elijas">A live one-on-one Zoom with your chosen cat</li><li data-es="Elige tu gato, fecha y hora">Choose your cat, date and time</li><li data-es="Pago seguro con Stripe">Secure Stripe payment</li><li class="zl" data-es="Enlace de Zoom por email en 24 horas">Zoom link emailed within 24 hours</li></ul>
 <a class="btn btn-gold" data-es="Reservar individual →" href="#schedule" data-plan="individual">Book Individual →</a>
 </div>
 <div class="plan featured">
@@ -763,7 +833,7 @@
 <div class="ic">👥</div>
 <h3 data-es="Sesión grupal">Group Session</h3>
 <div class="price" data-es="800 € &lt;small&gt;/ grupo&lt;/small&gt;">$800 <small>/ group</small></div>
-<ul><li data-es="Una experiencia felina compartida para todo tu grupo">A shared cat experience for your whole group</li><li data-es="Perfecta para equipos, eventos y celebraciones">Perfect for teams, events and celebrations</li><li data-es="Pago seguro con Stripe">Secure Stripe payment</li></ul>
+<ul><li data-es="Una experiencia felina compartida para todo tu grupo">A shared cat experience for your whole group</li><li data-es="Perfecta para equipos, eventos y celebraciones">Perfect for teams, events and celebrations</li><li data-es="Pago seguro con Stripe">Secure Stripe payment</li><li class="zl" data-es="Enlace de Zoom por email en 24 horas">Zoom link emailed within 24 hours</li></ul>
 <a class="btn btn-coral" data-es="Reservar grupal →" href="#schedule" data-plan="group">Book Group →</a>
 </div>
 </div>
@@ -774,7 +844,7 @@
 <div class="wrap">
 <div class="form-head">
 <h2 data-es="Agenda tu sesión 📅">Schedule Your Session 📅</h2>
-<p data-es="Elige tu gato, fecha y hora y paga de forma segura. Tu reserva queda registrada con el pago y te confirmaremos por email con tu enlace de Zoom.">Choose your cat, date and time, then pay securely. Your booking is saved with your payment and we'll confirm by email with your Zoom link.</p>
+<p data-es="Elige tu gato, fecha y hora y paga de forma segura. Tu reserva queda registrada con el pago y te confirmaremos tu sesión por email con tu enlace de Zoom &lt;b&gt;en un plazo máximo de 24 horas&lt;/b&gt;.">Choose your cat, date and time, then pay securely. Your booking is saved with your payment and we'll confirm your session by email with your Zoom link <b>within 24 hours</b>.</p>
 </div>
 <div class="form-card">
 <form class="bk-form" id="bookingForm" novalidate="">
@@ -866,8 +936,15 @@
 </select>
 </div>
 <div>
-<label data-es="Email para confirmación y enlace de Zoom *" for="f-email">Email for confirmation and Zoom link <i>/ Email para confirmación y enlace de Zoom</i> *</label>
+<label data-es="Email donde te enviamos el enlace de Zoom *" for="f-email">Email where we send your Zoom link <i>/ Email donde te enviamos el enlace de Zoom</i> *</label>
 <input autocomplete="email" data-es-placeholder="tu@email.com" id="f-email" name="Email" placeholder="you@email.com" required="" type="email"/>
+</div>
+<div class="zoom-box" role="note">
+<span class="zb-ic">📧</span>
+<div>
+<strong data-es="Tu enlace de Zoom llega por email en un plazo máximo de 24 horas">Your Zoom link arrives by email <mark>within 24 hours</mark></strong>
+<span class="zb-t" data-es="Después de pagar, te confirmaremos tu sesión por email con tu enlace de Zoom. Usa un email que revises y mira también la carpeta de spam.">After you pay, we'll confirm your session by email with your Zoom link. Use an email you check, and look in your spam folder too.</span>
+</div>
 </div>
 <div>
 <label data-es="Código de descuento (opcional)" for="f-promo">Discount code <i>/ Código de descuento</i> (optional)</label>
@@ -875,7 +952,7 @@
 <p class="form-note" data-es="Se aplica en la página de pago seguro de Stripe." style="margin-top:6px">Applied on the secure Stripe payment page.</p>
 </div>
 <button class="btn btn-gold" data-es="💳 Continuar al pago seguro" type="submit">💳 Continue to Secure Payment</button>
-<p class="form-note" data-es="Pagarás en Stripe a continuación. La hora es la de tu zona horaria. Al terminar volverás aquí con tu reserva y un archivo de calendario.">You'll pay on Stripe next. Times are in your local time zone. After paying you'll come back here with your booking and a calendar file.</p>
+<p class="form-note" data-es="Pagarás en Stripe a continuación. La hora es la de tu zona horaria. Al terminar volverás aquí con tu reserva y un archivo de calendario. Tu enlace de Zoom llegará por email en un plazo máximo de 24 horas.">You'll pay on Stripe next. Times are in your local time zone. After paying you'll come back here with your booking and a calendar file. Your Zoom link follows by email within 24 hours.</p>
 <div class="form-ok" id="formOk" role="status"></div>
 </form>
 </div>
@@ -890,6 +967,7 @@
 <span class="deal"><a class="btn btn-gold" data-es="🐱 Reservar individual&lt;small&gt;80 €&lt;/small&gt;" href="#schedule" data-plan="individual">🐱 Book Individual<small>$80</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;32 €&lt;/em&gt;"><b>−60%</b><em>$32</em></span></span>
 <span class="deal"><a class="btn btn-dark" data-es="👥 Reservar grupal&lt;small&gt;800 €&lt;/small&gt;" href="#schedule" data-plan="group">👥 Book Group<small>$800</small></a><span class="off" data-es="&lt;b&gt;−60%&lt;/b&gt;&lt;em&gt;320 €&lt;/em&gt;"><b>−60%</b><em>$320</em></span></span>
 </div>
+<p class="fz" data-es="📧 Después de pagar, tu enlace de Zoom llega por email en un plazo máximo de 24 horas.">📧 After you pay, your Zoom link arrives by email within 24 hours.</p>
 </div>
 </section>
 <footer>
@@ -985,7 +1063,7 @@
         'UID:' + b.ref + '@pawvibesz', 'DTSTAMP:' + new Date().toISOString().replace(/[-:]|\.\d{3}/g, ''),
         'DTSTART:' + stamp(s), 'DTEND:' + stamp(en),
         'SUMMARY:' + t('PawVibesZ 🐾 ' + b.cat),
-        'DESCRIPTION:' + t('Your PawVibesZ Zoom session. The Zoom link will arrive by email.'),
+        'DESCRIPTION:' + t(isES() ? 'Tu sesión de Zoom de PawVibesZ. El enlace de Zoom llegará por email en un plazo máximo de 24 horas desde el pago.' : 'Your PawVibesZ Zoom session. The Zoom link will arrive by email within 24 hours of payment.'),
         'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
       var a = document.createElement('a');
       a.href = URL.createObjectURL(new Blob([txt], { type: 'text/calendar;charset=utf-8' }));
